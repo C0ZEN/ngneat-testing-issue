@@ -9,8 +9,10 @@ export interface EmptyValidationError extends ValidationErrors {
 }
 
 export function validatorEmpty(): ValidatorFn {
+  console.log("[Validator.empty] Created");
+
   return (control: AbstractControl): EmptyValidationError | null => {
-    console.log(`[Validator.empty] Checking for "${control.value}"`);
+    console.log(`[Validator.empty] Checking validity for "${control.value}"`);
 
     if (
       control.value === "" ||

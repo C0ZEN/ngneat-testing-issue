@@ -11,8 +11,9 @@ import { validatorEmpty } from "../../validators/empty.validator";
 })
 export class NgneatFormComponent {
   public form = new FormGroup<IForm>({
-    firstname: new FormControl<Firstname, EmptyValidationError>("", [
+    firstname: new FormControl<Firstname, EmptyValidationError>(
+      "",
       validatorEmpty()
-    ])
+    )
   });
 }
