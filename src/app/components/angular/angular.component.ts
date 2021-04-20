@@ -9,6 +9,6 @@ import { validatorEmpty } from "../../validators/empty.validator";
 })
 export class AngularFormComponent {
   public form = new FormGroup({
-    firstname: new FormControl("", validatorEmpty)
+    firstname: new FormControl("", [validatorEmpty()])
   });
 }

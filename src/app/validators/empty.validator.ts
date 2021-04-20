@@ -1,18 +1,25 @@
+import { ValidatorFn } from "@angular/forms";
 import {
   AbstractControl,
   ValidationErrors
 } from "@ngneat/reactive-forms/lib/types";
 
-export function validatorEmpty(
-  control: AbstractControl
-): ValidationErrors | null {
-  if (
-    control.value === "" ||
-    control.value === null ||
-    control.value === undefined
-  ) {
-    return { isEmpty: true };
-  }
+export interface EmptyValidationError extends ValidationErrors {
+  isEmpty: true;
+}
 
-  return null;
+export function validatorEmpty(): ValidatorFn {
+  return (control: AbstractControl): EmptyValidationError | null => {
+    console.log(`[Validator.empty] Checking for "${control.value}"`);
+
+    if (
+      control.value === "" ||
+      control.value === null ||
+      control.value === undefined
+    ) {
+      return { isEmpty: true };
+    }
+
+    return null;
+  };
 }

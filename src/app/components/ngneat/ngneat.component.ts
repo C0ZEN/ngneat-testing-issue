@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { FormGroup, FormControl } from "@ngneat/reactive-forms";
 import { Firstname, IForm } from "../../models";
+import { EmptyValidationError } from "../../validators/empty.validator";
 import { validatorEmpty } from "../../validators/empty.validator";
 
 @Component({
@@ -10,6 +11,8 @@ import { validatorEmpty } from "../../validators/empty.validator";
 })
 export class NgneatFormComponent {
   public form = new FormGroup<IForm>({
-    firstname: new FormControl<Firstname>("", validatorEmpty)
+    firstname: new FormControl<Firstname, EmptyValidationError>("", [
+      validatorEmpty()
+    ])
   });
 }
