@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { validatorEmpty } from "../../validators/empty.validator";
 
 @Component({
@@ -9,6 +9,6 @@ import { validatorEmpty } from "../../validators/empty.validator";
 })
 export class AngularFormComponent {
   public form = new FormGroup({
-    firstname: new FormControl("", validatorEmpty())
+    firstname: new FormControl("", [validatorEmpty(), Validators.required])
   });
 }

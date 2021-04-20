@@ -4,5 +4,9 @@
   <input id="name" type="text" formControlName="firstname" />
   <span>Firstname: {{ form.controls.firstname.value }}</span>
   <span>Is firstname valid: {{ form.controls.firstname.valid }}</span>
+  <span *ngIf="form.controls.firstname.hasErrorAndTouched('required')">Required error</span>
+  <span *ngIf="!form.controls.firstname.hasErrorAndTouched('required')">No required error</span>
+  <span *ngIf="form.controls.firstname.hasErrorAndTouched('isEmpty')">Is empty error</span>
+  <span *ngIf="!form.controls.firstname.hasErrorAndTouched('isEmpty')">No is empty error</span>
   <span>Is form valid: {{ form.valid }}</span>
 </form>
