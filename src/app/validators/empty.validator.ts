@@ -1,8 +1,5 @@
-import { ValidatorFn } from "@angular/forms";
-import {
-  AbstractControl,
-  ValidationErrors
-} from "@ngneat/reactive-forms/lib/types";
+import { ValidationErrors, ValidatorFn } from "@angular/forms";
+import { AbstractControl } from "@ngneat/reactive-forms";
 
 export interface EmptyValidationError extends ValidationErrors {
   isEmpty: true;
