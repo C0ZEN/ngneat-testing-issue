@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Validators } from "@angular/forms";
 import { FormGroup, FormControl } from "@ngneat/reactive-forms";
 import { Firstname, IForm } from "../../models";
@@ -8,7 +9,8 @@ import { validatorEmpty } from "../../validators/empty.validator";
 @Component({
   selector: "ngneat-form",
   templateUrl: "./ngneat.component.html",
-  styleUrls: ["./ngneat.component.scss"]
+  styleUrls: ["./ngneat.component.scss"],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class NgneatFormComponent {
   public form = new FormGroup<IForm>({
